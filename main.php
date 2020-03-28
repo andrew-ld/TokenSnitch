@@ -17,11 +17,5 @@ require __DIR__ . '/vendor/autoload.php';
 
 Loop::run(function () {
    $server = new TokenSnitchServer();
-   $listener = $server->start();
-   yield $listener->start();
-
-    Loop::onSignal(SIGINT, function (string $watcherId) use ($listener) {
-        Loop::cancel($watcherId);
-        yield $listener->stop();
-    });
+   yield $server->start();
 });

@@ -50,6 +50,11 @@ class Config {
     private $LISTEN_ADDR = null;
 
     /**
+     * @var int
+     */
+    private $PROCESSES;
+
+    /**
      * Config constructor.
      */
     public function __construct()
@@ -72,9 +77,23 @@ class Config {
             ->notEmpty()
         ;
 
+        $dotenv
+            ->required('processes')
+            ->notEmpty()
+            ->isInteger()
+        ;
+
         $this->TOKEN = $_ENV['token'];
         $this->CHANNEL_ID = (int) $_ENV['channel_id'];
         $this->LISTEN_ADDR = $_ENV['listen_addr'];
+        $this->PROCESSES = (int) $_ENV['processes'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getHubProcesses(): int {
+        return $this->PROCESSES;
     }
 
     /**
