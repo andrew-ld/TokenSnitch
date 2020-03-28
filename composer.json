@@ -1,0 +1,20 @@
+{
+    "name": "telegram/tokensnitch",
+    "type": "library",
+    "minimum-stability": "dev",
+    "description": "",
+    "require": {
+        "amphp/http-server": "^2@dev",
+        "amphp/http-client": "^4.0@dev",
+        "vlucas/phpdotenv": "^4.1@dev",
+        "amphp/http-server-router": "dev-master",
+        "amphp/log": "dev-master",
+        "ext-json": "^7.4",
+        "ext-pcntl": "^7.4",
+        "amphp/process": "^1",
+        "danog/ipc": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {"TokenSnitch\\": "src/"}
+    }
+}
