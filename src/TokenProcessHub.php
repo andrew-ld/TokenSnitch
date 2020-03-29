@@ -98,6 +98,7 @@ class TokenProcessHub {
                     $result = yield $ipc->receive();
 
                     $this->processes[$i][2] = false;
+                    break;
                 }
             }
 
